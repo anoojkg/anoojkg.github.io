@@ -8,12 +8,12 @@
 </head>
 <body>
     <div class="landing-section">
-        <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
+        <video poster="./assets/Video/shot.png" id="bgvid" playsinline autoplay muted loop>
             <!-- 
         - Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
         WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
-            <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm">
-            <source src="http://thenewcode.com/assets/videos/polina.mp4" type="video/mp4">
+            <!-- <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm"> -->
+            <source src="./assets/Video/video.mp4" type="video/mp4">
         
         </video>
 
@@ -590,10 +590,10 @@
                         Need to know more details ? Don't worry, give us your details and we'll call you back
                     </div>
                 
-                    <form action="">
-                        <input type="text" placeholder="Name">
+                    <form id="telegramForm" onsubmit="sendMsg">
+                        <input type="text" placeholder="Name" required>
                         <input type="email" placeholder="Email">
-                        <input type="text" placeholder="Phone">
+                        <input type="text" placeholder="Phone" required>
                         <button> Submit </button>
                     </form>
                 </div>
@@ -663,5 +663,22 @@
                 
         </div>
     </div>
+
+    <script>
+        var form = document.querySelector("form");
+        // var form = document.getElementById('telegramForm');
+        form.addEventListener('submit', sendMsg, false);
+        function sendMsg(e){
+            e.preventDefault();
+            fetch(`https://api.telegram.org/bot1447005504:AAE8UdY7B8NVVWjwd96m42BYTD88EF1dVt0/sendMessage?chat_id=-467699596&text=${form.elements[0].value}+${ form.elements[1].value}+${form.elements[2].value}`)
+                .then(res => {
+                    if (res.ok) alert("sent");
+                    else alert("error")
+                })
+                .catch(
+                    err => alert("Network Error")
+                )
+        }
+    </script>
 </body>
 </html>

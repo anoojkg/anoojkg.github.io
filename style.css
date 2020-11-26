@@ -43,8 +43,12 @@ svg{
     height: 100vh;
     width: 100vw;
 
-    background-color: rgba(0, 0, 0, 0.452);
+    background-color:black;
+    background-image: url(./assets/Video/shot.png);
+    background-size: cover;
+    background-position: center;
     overflow: hidden;
+    z-index: 0;
 }
 
 .landing-section > video {
@@ -57,7 +61,7 @@ svg{
     height: auto;
     
     transform: translateX(-50%) translateY(-50%);
-    background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+    background: url('./assets/Video/shot.png') no-repeat;
     background-size: cover;
     transition: 1s opacity;
 
@@ -66,11 +70,10 @@ svg{
 
 .landing-section-content{
     color: white;
-    z-index: 100;
     
     height: 100%;
     width: 100%;
-    
+    background-color: rgba(0, 0, 0, 0.315);
 
     display: flex;
     flex-direction: column;
@@ -78,20 +81,21 @@ svg{
     justify-content: center;
 
     text-align: center;
+    z-index: 200;
 }
 
 
 .landing-section-main-heading{
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .landing-section-sub{
-    width: 40vw;
-
-    font-weight: 300;
+    width: 40vw;font-weight: 300;
 }
 
 .landing-section-sign-in{
+    display: none;
     margin-top: 10px;
     cursor: pointer;
     border: 0.5px white solid;
@@ -156,16 +160,17 @@ svg{
     position: absolute;
     z-index: -10;
 
-    top: -20px;
-    right: -20px;
+    width: 7vw;
+    top: -2vw;
+    right: -2vw;
 }
 
 .about-image-div .about-image-box{
     position: absolute;
     z-index: -10;
 
-    bottom: -20px;
-    left: -20px;
+    bottom: -2vw;
+    left: -2vw;
 
     height: 10vw;
     width: 14vw;
@@ -338,7 +343,7 @@ svg{
 
 
 .contact-section{
-    height: 100vh;
+    min-height: 100vh;
     padding: 0 10vw;
     display: flex;
     flex-direction: column;
@@ -526,5 +531,14 @@ form > button{
     .about-image-div{ 
         width: 60vw;
         height: 70vw;
+    }
+
+    .landing-section-main-heading{
+        padding: 0 10vw;
+    }
+
+    .landing-section-sub{
+        padding: 0 10vw;
+        width: auto;
     }
 }
