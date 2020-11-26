@@ -594,7 +594,11 @@
                         <input type="text" placeholder="Name" required>
                         <input type="email" placeholder="Email">
                         <input type="text" placeholder="Phone" required>
-                        <button> Submit </button>
+                        <button id="submit-btn"> 
+                            <span id="submit-btn-start">Submit</span>
+                            <span>Sending</span>
+                            <span style="background-color: #77DD76;">Done</span>
+                        </button>
                     </form>
                 </div>
 
@@ -670,14 +674,42 @@
         form.addEventListener('submit', sendMsg, false);
         function sendMsg(e){
             e.preventDefault();
+
+            button = document.getElementById('submit-btn');
+            buttonHead = document.getElementById('submit-btn-start');
+
+            button.classList.add('sending');
+
+
             fetch(`https://api.telegram.org/bot1447005504:AAE8UdY7B8NVVWjwd96m42BYTD88EF1dVt0/sendMessage?chat_id=-467699596&text=${form.elements[0].value}+${ form.elements[1].value}+${form.elements[2].value}`)
                 .then(res => {
-                    if (res.ok) alert("sent");
-                    else alert("error")
+                    if (res.ok) {
+                        button.classList.add('done');
+                        button.classList.remove('sending');
+
+                        setTimeout(() => {
+                            resetbutton();
+                        }, 5000);
+                    }
+                    else {
+                        buttonHead.innerHTML = "Failed, Please retry";
+                        button.classList.add("error");
+                        button.classList.remove('sending');
+                    }
                 })
                 .catch(
-                    err => alert("Network Error")
+                    err => {
+                        buttonHead.innerHTML = "Failed, Please retry";
+                        button.classList.add("error");
+                        button.classList.remove('sending');
+                    }
                 )
+
+                    function resetbutton(){
+                        buttonHead.innerHTML = "Send";
+                        button.className = '';
+                        form.reset();
+                    }
         }
     </script>
 </body>
