@@ -6,7 +6,62 @@
     <link rel="stylesheet" href="./style.css">
     <title>PhoenixOne</title>
 </head>
-<body>
+<body class="dark">
+    <div class="top-bar">
+        <div class="top-bar-logo">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                y="0px" width="92.896px" height="92.896px" viewBox="0 0 92.896 92.896"
+                style="enable-background:new 0 0 92.896 92.896;" xml:space="preserve">
+                <g>
+                    <g>
+                        <polygon points="0,51.115 0,90.161 33.818,90.161 33.811,84.637 		" />
+                        <polygon points="59.078,90.168 92.896,90.168 92.896,51.121 59.086,84.645 		" />
+                        <polygon points="92.896,2.925 46.547,48.879 0,2.729 0,42.438 46.547,88.588 92.889,42.641 		" />
+                    </g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+            </svg>
+        </div>
+        <div class="top-bar-menu">
+            <svg height="384pt" viewBox="0 -53 384 384" width="384pt" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
+                <path
+                    d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
+                <path
+                    d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
+                </svg>
+        </div>
+    </div>
     <div class="landing-section">
         <video poster="./assets/Video/shot.png" id="bgvid" playsinline autoplay muted loop>
             <!-- 
@@ -26,7 +81,7 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt euismod lectus
             </div>
 
-            <div class="landing-section-sign-in">
+            <div class="landing-section-sign-in sub">
                 Sign In
             </div>
         </div>
@@ -591,9 +646,9 @@
                     </div>
                 
                     <form id="telegramForm" onsubmit="sendMsg">
-                        <input type="text" placeholder="Name" required>
+                        <input type="text" placeholder="Name">
                         <input type="email" placeholder="Email">
-                        <input type="text" placeholder="Phone" required>
+                        <input type="text" placeholder="Phone">
                         <button id="submit-btn"> 
                             <span id="submit-btn-start">Submit</span>
                             <span>Sending</span>
@@ -670,47 +725,80 @@
 
     <script>
         var form = document.querySelector("form");
-        // var form = document.getElementById('telegramForm');
+        button = document.getElementById('submit-btn');
+        buttonHead = document.getElementById('submit-btn-start');
+
+
         form.addEventListener('submit', sendMsg, false);
         function sendMsg(e){
             e.preventDefault();
-
-            button = document.getElementById('submit-btn');
-            buttonHead = document.getElementById('submit-btn-start');
-
             button.classList.add('sending');
 
 
             fetch(`https://api.telegram.org/bot1447005504:AAE8UdY7B8NVVWjwd96m42BYTD88EF1dVt0/sendMessage?chat_id=-467699596&text=${form.elements[0].value}+${ form.elements[1].value}+${form.elements[2].value}`)
                 .then(res => {
                     if (res.ok) {
-                        button.classList.add('done');
-                        button.classList.remove('sending');
-
-                        setTimeout(() => {
-                            resetbutton();
-                        }, 5000);
+                        handleTelegramSuccess();
                     }
                     else {
-                        buttonHead.innerHTML = "Failed, Please retry";
-                        button.classList.add("error");
-                        button.classList.remove('sending');
+                        handleTelegramError();
                     }
                 })
                 .catch(
                     err => {
-                        buttonHead.innerHTML = "Failed, Please retry";
-                        button.classList.add("error");
-                        button.classList.remove('sending');
+                        handleTelegramError();
                     }
                 )
-
-                    function resetbutton(){
-                        buttonHead.innerHTML = "Send";
-                        button.className = '';
-                        form.reset();
-                    }
         }
+
+        function resetbutton() {
+            buttonHead.innerHTML = "Send";
+            button.className = '';
+            form.reset();
+        }
+
+        function handleTelegramError() {
+            buttonHead.innerHTML = "Failed, please retry";
+            button.classList.add("error");
+            button.classList.remove('sending');
+            setTimeout(() => {
+                button.classList.add('shake');
+            }, 100);
+            button.classList.remove('shake');
+        }
+
+        function handleTelegramSuccess() {
+            button.classList.add('done');
+            button.classList.remove('sending');
+            setTimeout(() => {
+                resetbutton();
+            }, 3000);
+        }
+    </script>
+
+    <script>
+            const topBar = document.querySelector(".top-bar");
+            const landing = document.querySelector(".landing-section");
+
+            const landingOptions = {
+                rootMargin: "-200px 0px 0px 0px"
+            };
+
+            const landingObserver = new IntersectionObserver(function (
+                entries,
+                landingObserver
+            ) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        topBar.classList.add("nav-scrolled");
+                    } else {
+                        topBar.classList.remove("nav-scrolled");
+                    }
+                });
+            },
+                landingOptions);
+
+            landingObserver.observe(landing);
     </script>
 </body>
 </html>
