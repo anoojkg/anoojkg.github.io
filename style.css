@@ -18,14 +18,16 @@
     padding: 0;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
+
+    transition: background-color 0.3s ease-out;
 }
 
 body{
-    /* 
     --primary: #ffffff;
     --secondary: #1c1c1c; 
-    
-    */
+    --card-main : rgb(247, 247, 247);
+    --card-light: white;
+    --underline: #B7E6FF;
 
     color: var(--secondary);
     background-color: var(--primary);
@@ -39,13 +41,13 @@ body{
     --underline: #525252;
 }
 
-.light{
+/* .light{
     --primary: #ffffff;
     --secondary: #1c1c1c; 
     --card-main : rgb(247, 247, 247);
     --card-light: white;
     --underline: #B7E6FF;
-}
+} */
 
 svg{
     width: 20px;
@@ -546,6 +548,92 @@ form > button > span {
   }
 }
 
+.top-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 60px;
+    padding: 0 5vw;
+
+    background-color: rgba(255, 255, 255, 0);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 100;
+    transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.top-bar svg{
+    width: 30px;
+    fill: white;
+
+    transition: fill 0.2s ease-out;
+}
+
+.nav-scrolled{
+    background-color: var(--primary);
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.281);
+}
+
+.nav-scrolled svg{
+    fill: var(--secondary);
+}
+
+
+/* dark-mode */
+
+.checkbox-container{
+    padding: 10px 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+body.dark {
+	background: #292C35;
+}
+
+.checkbox {
+	opacity: 0;
+	position: absolute;
+}
+
+.label {
+    margin-left: 10px;
+	background-color: #111;
+    border-radius: 50px;
+    padding: 1px 2px;
+	cursor: pointer;
+	display: flex;
+    align-items: center;
+	height: 13px;
+	width: 25px;
+	
+}
+
+.label .ball {
+	background-color: var(--primary);
+	border-radius: 50%;
+	height: 11px;
+	width: 11px;
+	transform: translateX(0px);
+	transition: transform 0.3s linear;
+}
+
+.checkbox:checked + .label .ball {
+    transform: translateX(14px);
+}
+
+.checkbox:checked + .label{
+    background-color: rgb(0, 255, 0);
+}
+
+
+
 
 @media(min-width: 700px){
     .future-item:nth-child(even){
@@ -566,6 +654,19 @@ form > button > span {
 }
 
 @media(max-width: 700px){
+    .checkbox-container{
+        padding: 10px 0px;
+        justify-content: center
+    }
+
+    .top-bar{
+        height: 40px;
+    }
+
+    .top-bar svg{
+        width: 20px;
+    }
+
     .future-item{
         flex-direction: column;
     }
@@ -625,37 +726,3 @@ form > button > span {
     }
 }
 
-.top-bar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    height: 60px;
-    padding: 0 5vw;
-
-    background-color: rgba(255, 255, 255, 0);
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-
-    z-index: 100;
-    transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out;
-}
-
-.top-bar svg{
-    width: 30px;
-    fill: white;
-
-    transition: fill 0.2s ease-out;
-}
-
-.nav-scrolled{
-    background-color: var(--primary);
-    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.281);
-}
-
-.nav-scrolled svg{
-    fill: var(--secondary);
-}
