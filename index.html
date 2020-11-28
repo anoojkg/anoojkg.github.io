@@ -7,7 +7,21 @@
     <title>PhoenixOne</title>
 </head>
 <body class="">
-    <div class="top-bar">
+    <div class="top-bar" id="top-bar">
+        <div class="top-bar-drop-down">
+            <a href="#home" class="option">
+                <div>Home</div>
+            </a>
+            <a href="#about" class="option">
+                <div>About Us</div>
+            </a>
+            <a href="#future" class="option">
+                <div>Future</div>
+            </a>
+            <a href="#contact" class="option">
+                <div>Contact</div>
+            </a>
+        </div>
         <div class="top-bar-logo">
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                 y="0px" width="92.896px" height="92.896px" viewBox="0 0 92.896 92.896"
@@ -51,7 +65,7 @@
                 </g>
             </svg>
         </div>
-        <div class="top-bar-menu">
+        <div class="top-bar-menu" id="menu-bar">
             <svg height="384pt" viewBox="0 -53 384 384" width="384pt" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
@@ -63,6 +77,7 @@
         </div>
     </div>
     <div class="landing-section">
+        <a name="home"></a>
         <video poster="./assets/Video/shot.png" id="bgvid" playsinline autoplay muted loop>
             <!-- 
         - Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
@@ -95,9 +110,10 @@
             <div class="ball"></div>
         </label>
     </div>
+    
     <div class="about-section">
         <div class="about-section-header header">
-            About Us
+            <a name="about">About Us</a>
         </div>
         <div class="about-section-content">
 
@@ -184,7 +200,7 @@
 
     <div class="future-section">
         <div class="header">
-            Have You Planned For Your Future ?
+            <a name="future">Have You Planned For Your Future ?</a>
         </div>
 
         <div class="future-items">
@@ -630,7 +646,7 @@
 
     <div class="contact-section">
         <div class="contact-section-header header">
-            Contact Us
+            <a name="contact">Contact Us</a>
         </div>
 
         <div class="contact-content">
@@ -814,6 +830,20 @@
             chk.addEventListener('change', () => {
                 document.body.classList.toggle('dark');
             });
+    </script>
+    <script>
+        const menuBar = document.getElementById('menu-bar');
+        const option = document.getElementsByClassName('option');
+        console.log(menuBar);
+        menuBar.addEventListener('click', () => {
+            topBar.classList.toggle('active');
+        })
+
+        for (var i = 0; i < option.length; i++) {
+                option[i].addEventListener('click', () => {
+                topBar.classList.toggle('active');
+            }, false);
+            }
     </script>
 </body>
 </html>
