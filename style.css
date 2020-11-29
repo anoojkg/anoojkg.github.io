@@ -30,7 +30,6 @@ a{
 html{
     scroll-behavior: smooth;
     scroll-padding-top: 60px; /* height of sticky header */
-    scroll-snap-padding-top: 60px; /* height of sticky header */
 }
 
 body{
@@ -42,6 +41,7 @@ body{
 
     color: var(--secondary);
     background-color: var(--primary);
+    overflow-x: hidden;
 }
 
 .dark{
@@ -186,17 +186,15 @@ svg{
     fill: var(--blue);
 }
 
-.about-image-div{ 
+.about-image-div, .about-image-div .img{ 
     width: 22vw;
     height: 27vw;
-    background-color: rgb(233, 233, 233);
-
-    background-image: url(./assets/anooj.jpg);
-    background-size: cover;
-    background-position: center;
-
+    background-color: var(--primary);
     position: relative;
+    display: flex;
+    justify-content: flex-end;
 }
+
 
 .about-image-div svg{
     position: absolute;
@@ -276,16 +274,26 @@ svg{
 .future-image-div{ 
     width: 34vw;
     height: 21vw;
-    background-color: rgb(233, 233, 233);
-
-    background-image: url(./assets/anooj.jpg);
-    background-size: cover;
-    background-position: center;
+    background-color: var(--primary);
 
     position: relative;
     
     border-radius: 2vw;
     margin: 0 2vw;
+
+    transition: opacity 0.3s ease-out;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.img{
+    background-position: center;
+    background-size: cover;
+}
+
+.future-image-div .img{
+    width: 34vw;
+    height: 21vw;
 }
 
 .future-image-div svg{
@@ -339,6 +347,10 @@ svg{
     background-color: var(--blue-light);
 }
 
+.blue .fade-img-div{
+    background-color: var(--blue);
+}
+
 .red circle, .red ellipse{
     fill: var(--red);
 }
@@ -346,6 +358,11 @@ svg{
 .red .future-image-box{
     background-color: var(--red-light);
 }
+
+.red .fade-img-div{
+    background-color: var(--red);
+}
+
 
 .orange circle, .orange ellipse{
     fill: var(--orange);
@@ -355,12 +372,20 @@ svg{
     background-color: var(--orange-light);
 }
 
+.orange .fade-img-div{
+    background-color: var(--orange);
+}
+
 .violet circle, .violet ellipse{
     fill: var(--violet);
 }
 
 .violet .future-image-box{
     background-color: var(--violet-light);
+}
+
+.violet .fade-img-div{
+    background-color: var(--violet);
 }
 
 .future-item-content{
@@ -778,6 +803,86 @@ body.dark {
 }
 
 
+.fader{
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.fader.fade-in{
+    opacity: 1;
+}
+
+.fadeImg .img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.fade-img-div{
+    background-color: var(--blue);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: 0% 50%;
+}
+
+.fadeImg.reveal .fade-img-div{
+    animation: overlay 0.8s;
+}
+
+.fadeImg.reveal .img{
+    animation: pic 0.7s;
+    animation-fill-mode: forwards;
+}
+
+.secondary-fader{
+    opacity: 0;
+    transition: opacity 1s ease-out;
+    transition-delay: 0.4s;
+}
+
+.fadeImg.reveal > .secondary-fader{
+    opacity: 1;
+}
+ 
+.future-image-div .img{
+    height: 21vw;
+    border-radius: 2vw;
+
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes pic {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  51% { opacity: 1; }
+  100% { opacity: 1;transform: translate(-50%, -50%) scale(1); }
+}
+ 
+@keyframes overlay {
+  0% {
+    transform: scaleX(0);
+    transform-origin: 0% 50%;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: 0% 50%;
+  }
+  51% {
+    transform: scaleX(1);
+    transform-origin: 100% 50%;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: 100% 50%;
+  }
+}
+
+
 
 
 @media(min-width: 700px){
@@ -842,6 +947,11 @@ body.dark {
 
         margin-bottom: 5vw;
     }
+
+    .future-image-div .img{
+        height: 50vw;
+        width: 76vw;
+    }
     
     .contact-content-callback{
        width: auto;
@@ -876,7 +986,7 @@ body.dark {
         margin-bottom: 100px;
     }
 
-    .about-image-div{ 
+    .about-image-div, .about-image-div .img{ 
         width: 60vw;
         height: 70vw;
     }
