@@ -7,6 +7,7 @@
     <title>PhoenixOne</title>
 </head>
 <body class="">
+
     <div class="top-bar" id="top-bar">
         <div class="top-bar-drop-down">
             <a href="#home" class="option">
@@ -819,6 +820,24 @@
         </div>
     </div>
 
+    <script>
+        function activateAnimations(){
+            var fader = document.querySelectorAll('.fader');
+
+            for (var i = 0; i < fader.length; i++)
+                fader[i].classList.add('fader-active');
+
+            var fadeImgDiv = document.querySelectorAll('.fade-img-div');
+
+            for (var i = 0; i < fadeImgDiv.length; i++)
+                fadeImgDiv[i].classList.add('fade-img-div-active');
+
+            var secondaryFader = document.querySelectorAll('.secondary-fader');
+
+            for (var i = 0; i < secondaryFader.length; i++)
+                secondaryFader[i].classList.add('secondary-fader-active');
+        }
+    </script>
     
 
     <!-- top-bar -->
@@ -860,7 +879,7 @@
                 landingOptions);
 
             if(landingObserver){
-                console.log(true)
+                activateAnimations();
             }
 
             landingObserver.observe(landing);

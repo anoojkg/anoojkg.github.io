@@ -804,8 +804,12 @@ body.dark {
 
 
 .fader{
-    opacity: 0;
+    /* opacity: 0; */
     transition: opacity 0.5s ease-out;
+}
+
+.fader-active{
+    opacity: 0;
 }
 
 .fader.fade-in{
@@ -827,7 +831,7 @@ body.dark {
 
 .fade-img-div{
     background-color: var(--primary);
-    width: 50%;
+    /* width: 50%; */
     z-index: 200;
 
     transition: width 0.3s ease-out;
@@ -838,6 +842,10 @@ body.dark {
     /* transform-origin: 0% 50%; */
 
     display: flex;
+}
+
+.fade-img-div-active{
+    width: 50%;
 }
 
 .left-fade{
@@ -872,9 +880,13 @@ body.dark {
 } */
 
 .secondary-fader{
-    opacity: 0;
+    /* opacity: 0; */
     transition: opacity 1s ease-out;
     transition-delay: 0.4s;
+}
+
+.secondary-fader-active{
+    opacity: 0;
 }
 
 .fadeImg.reveal > .secondary-fader{
