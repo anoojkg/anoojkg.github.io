@@ -73,7 +73,7 @@ svg{
 }
 
 .sub-header{
-    font-size: 4vw;
+    font-size: 3vw;
 }
 
 .sub{
@@ -281,7 +281,7 @@ svg{
     border-radius: 2vw;
     margin: 0 2vw;
 
-    transition: opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out, background-color 3s ease-out;
     display: flex;
     justify-content: flex-end;
 }
@@ -646,6 +646,10 @@ form > button > span {
     transition: fill 0.2s ease-out;
 }
 
+.top-bar-logo svg{
+    width: 50px;
+}
+
 .top-bar-menu{
     cursor: pointer;
 }
@@ -995,6 +999,10 @@ body.dark {
         width: 20px;
     }
 
+    .top-bar-logo svg{
+        width: 35px;
+    }
+
     .future-item{
         flex-direction: column;
     }
@@ -1020,11 +1028,11 @@ body.dark {
     }
 
     .sub-header{
-        font-size: 8vw;
+        font-size: 6vw;
     }
 
     .sub{
-        font-size: 4vw;
+        font-size: 3vw;
     }
 
     .callback-header{
