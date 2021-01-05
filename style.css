@@ -646,7 +646,7 @@ form > button > span {
     transition: fill 0.2s ease-out;
 }
 
-.top-bar-logo svg{
+.top-bar-logo img{
     width: 50px;
 }
 
@@ -945,8 +945,6 @@ body.dark {
 }
 
 
-
-
 @media(min-width: 700px){
     .future-item:nth-child(even){
     flex-direction: row-reverse;
@@ -977,7 +975,8 @@ body.dark {
 
     .pop{
     transform: translate3d(0, 0, 0);
-}
+    }
+
     .checkbox-container{
         padding: 10px 0px;
         justify-content: center
@@ -999,8 +998,9 @@ body.dark {
         width: 20px;
     }
 
-    .top-bar-logo svg{
-        width: 35px;
+    .top-bar-logo img{
+        margin-top: 5px;
+        width: 40px;
     }
 
     .future-item{
@@ -1067,3 +1067,20 @@ body.dark {
     }
 }
 
+@media(max-width: 400px){
+    .header{
+        font-size: 10vw;
+    }
+
+    .sub-header{
+        font-size: 6vw;
+    }
+
+    .sub{
+        font-size: 1em;
+    }
+
+    .callback-header{
+        font-size: 5vw;
+    }
+}
