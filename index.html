@@ -711,9 +711,9 @@
                     </div>
                 
                     <form id="telegramForm" onsubmit="sendMsg">
-                        <input type="text" placeholder="Name">
-                        <input type="email" placeholder="Email">
-                        <input type="text" placeholder="Phone">
+                        <input type="text" placeholder="Name" required>
+                        <input type="text" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" placeholder="Email" required title="This field should be a valid email">
+                        <input type="text" placeholder="Phone" pattern="^\d{5,}$">
                         <button id="submit-btn"> 
                             <span id="submit-btn-start">Submit</span>
                             <span>Sending</span>
