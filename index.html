@@ -8,7 +8,7 @@
 </head>
 <body class="">
 
-    <div class="top-bar" id="top-bar">
+    <div class="top-bar nav-scrolled" id="top-bar">
         <div class="top-bar-drop-down">
             <a href="#home" class="option">
                 <div>Home</div>
@@ -828,29 +828,29 @@
                 }, false);
             }
 
-            const landingOptions = {
-                rootMargin: "-200px 0px 0px 0px"
-            };
+            // const landingOptions = {
+            //     rootMargin: "-200px 0px 0px 0px"
+            // };
 
-            const landingObserver = new IntersectionObserver(function (
-                entries,
-                landingObserver
-            ) {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) {
-                        topBar.classList.add("nav-scrolled");
-                    } else {
-                        topBar.classList.remove("nav-scrolled");
-                    }
-                });
-            },
-                landingOptions);
+            // const landingObserver = new IntersectionObserver(function (
+            //     entries,
+            //     landingObserver
+            // ) {
+            //     entries.forEach(entry => {
+            //         if (!entry.isIntersecting) {
+            //             topBar.classList.add("nav-scrolled");
+            //         } else {
+            //             topBar.classList.remove("nav-scrolled");
+            //         }
+            //     });
+            // },
+            //     landingOptions);
 
-            if(landingObserver){
-                activateAnimations();
-            }
+            // if(landingObserver){
+            //     activateAnimations();
+            // }
 
-            landingObserver.observe(landing);
+            // landingObserver.observe(landing);
     </script>
     
     <!-- Dark Mode -->
@@ -1014,6 +1014,10 @@
             fadeImgs.forEach(fadeImg => {
                 revealOnScroll.observe(fadeImg);
             });
+
+            if(revealOnScroll){
+                activateAnimations();
+            }
 
     </script>
 </body>
