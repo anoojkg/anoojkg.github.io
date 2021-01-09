@@ -1034,6 +1034,7 @@ body.dark {
 
     .sub{
         font-size: 3vw;
+        line-height: 25px;
     }
 
     .callback-header{
