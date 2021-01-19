@@ -68,6 +68,29 @@ svg{
     fill: var(--primary);
 }
 
+.whatsapp-floating{
+    z-index: 500;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: var(--primary);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    box-shadow: 0px 4px 20px grey;
+}
+
+.whatsapp-floating > svg{
+    fill: var(--secondary);
+}
+
 .header{
     font-size: 7vw;
     text-align: center;
@@ -131,10 +154,13 @@ svg{
 .landing-section-main-heading{
     margin-bottom: 20px;
     cursor: pointer;
+
+    font-size: 5vw;
 }
 
 .landing-section-sub{
-    width: 40vw;font-weight: 300;
+    width: 40vw;
+    font-weight: 300;
 }
 
 .landing-section-sign-in{
@@ -172,8 +198,11 @@ svg{
 }
 
 .about-section-wide{
-    margin: 30px 0;
+    margin-top: 60px;
+    margin-bottom: 100px;
     font-weight: 300;
+
+    text-align: center;
 }
 
 .about-section-content{
@@ -416,7 +445,7 @@ svg{
 
 
 .contact-section{
-    min-height: 100vh;
+    /* min-height: 100vh; */
     padding: 0 10vw;
     display: flex;
     flex-direction: column;
@@ -468,9 +497,23 @@ svg{
     height: auto;
 }
 
-.contact-detail-social{
+/* .contact-detail-social{
     margin-top: auto;
     margin-bottom: 10vh;
+    display: none;
+} */
+
+.contact-details-disclaimer{
+    margin-top: auto;
+    margin-bottom: 40px;
+    text-align: justify;
+}
+
+.contact-details-disclaimer > span{
+    /* color: var(--red); */
+    font-size: 7px;
+    display: block;
+    margin-top: 10px;
 }
 
 .social-text{
@@ -551,6 +594,21 @@ form > button > span {
     justify-content: center;
 
     transition: margin-top 0.3s ease-out;
+}
+
+.form-error{
+    margin-left: 10px;
+    color: var(--red);
+    font-size: 8px;
+    margin-bottom: 5px;
+    margin-top: -5px;
+
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.form-error-show{
+    opacity: 1;
 }
 
 .sending > #submit-btn-start{
@@ -640,7 +698,7 @@ form > button > span {
     margin: 0 4vw;
 }
 
-.top-bar-drop-down  div:hover, .top-bar-drop-down > .option:first-child > div{
+.top-bar-drop-down  div:hover{
     background-color: var(--blue);
     color: white;
 }
@@ -653,7 +711,8 @@ form > button > span {
 }
 
 .top-bar-logo img{
-    width: 50px;
+    width: 200px;
+    margin-bottom: -10px;
 }
 
 .top-bar-menu{
@@ -735,7 +794,7 @@ body.dark {
     position: fixed;
     bottom: 0;
     margin-bottom: 20px;
-    z-index: 300;
+    z-index: 600;
     left: 50%;
     transform: translate3d(-50%, calc(100% + 20px), 0);
 
@@ -952,6 +1011,9 @@ body.dark {
 
 
 @media(min-width: 700px){
+    .top-bar{
+        padding: 0 30px;
+    }
     .future-item:nth-child(even){
     flex-direction: row-reverse;
     }
@@ -1005,8 +1067,21 @@ body.dark {
     }
 
     .top-bar-logo img{
-        margin-top: 5px;
-        width: 40px;
+        margin-bottom: -5px;
+        width: 120px;
+    }
+
+    .about-section-wide{
+        margin-top: 40px;
+        margin-bottom: 0px;
+        font-weight: 300;
+
+        text-align: justify;
+    }
+
+    .future-item{
+        display: flex;
+        margin-bottom: 80px;
     }
 
     .future-item{
