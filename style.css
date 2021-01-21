@@ -73,7 +73,7 @@ svg{
     position: fixed;
     bottom: 0;
     right: 0;
-    background-color: var(--primary);
+    background-color: #13cab5;
 
     display: flex;
     justify-content: center;
@@ -84,11 +84,11 @@ svg{
     border-radius: 20px;
     margin-bottom: 10px;
     margin-right: 10px;
-    box-shadow: 0px 4px 20px grey;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.404);
 }
 
 .whatsapp-floating > svg{
-    fill: var(--secondary);
+    fill: white;
 }
 
 .header{
@@ -510,7 +510,6 @@ svg{
 }
 
 .contact-details-disclaimer > span{
-    /* color: var(--red); */
     font-size: 7px;
     display: block;
     margin-top: 10px;
@@ -874,7 +873,7 @@ body.dark {
 
 .fader{
     /* opacity: 0; */
-    transition: opacity 0.5s ease-out;
+    transition: opacity 0.5s ease-out, background-color 0.3s ease-out;
 }
 
 .fader-active{
@@ -1011,6 +1010,13 @@ body.dark {
 
 
 @media(min-width: 700px){
+    .top-bar-drop-down div{
+        margin: 0 15px;
+    }
+
+    .contact-details-disclaimer > span{
+        font-size: 10px;
+    }
     .top-bar{
         padding: 0 30px;
     }
