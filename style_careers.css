@@ -16,6 +16,7 @@
     background-image: url(./assets/sofa.png);
     background-position: center;
     background-size: cover;
+    margin-bottom: 40px;
 }
 
 .careers-landing-content{
@@ -37,4 +38,71 @@
     width: 60%;
     text-align: center;
     font-weight: 300;
+}
+
+.career-details{
+    width: 70%;
+    margin: 0 auto;
+    min-height: 70vh;
+}
+
+.career-details-header{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px #E4E4E4 solid;
+}
+
+.career-details-header > div:first-child{
+    font-size: 4vw;
+    margin-bottom: 10px;
+}
+
+.career-details-header > div:last-child{
+    color: #979797;
+}
+.career-details-header > div:last-child .email{
+    color: black;
+    font-weight: 500;
+}
+
+.career{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px #E4E4E4 solid;
+}
+
+.career-details > .career:last-child{
+    border-bottom: none;
+}
+
+.career > .career-designation{
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.career > .career-experience{
+    color: #979797;
+    margin-bottom: 10px;
+}
+
+.career >.career-description > p{
+    margin-bottom: 10px;
+    line-height: 25px;
+    text-align: justify;
+}
+
+@media(max-width: 700px){
+    .careers-landing-content > div:first-child{
+        font-size: 10vw;
+    }
+    .career-details-header > div:first-child{
+        font-size: 7vw;
+    }
+    .career-details{
+        width: 80%;
+    }
+    .careers-landing-content > div:last-child{
+        width: 80%;
+    }
 }
