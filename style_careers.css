@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+
+    transition: background-color 0.3s ease-out;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.careers-landing{
+    background-color: black;
+    color: white;
+    height: 94vh;
+    background-image: url(./assets/sofa.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.careers-landing-content{
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.335);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.careers-landing-content > div:first-child{
+    font-size: 4vw;
+    font-weight: 600;
+}
+
+.careers-landing-content > div:last-child{
+    margin-top: 10px;
+    width: 60%;
+    text-align: center;
+    font-weight: 300;
+}
