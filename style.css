@@ -180,6 +180,14 @@ svg{
     font-weight: 300;
 
     transition: color 0.2s ease-out, background-color 0.3s ease-out;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome, Edge, Opera and Firefox */
 }
 
 .landing-section-sign-in:hover{
@@ -664,6 +672,31 @@ form > button > span {
     transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
+.top-bar-shadow, .sign-in-shadow{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 290;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease-out;
+    
+    display: none;
+}
+
+.sign-in-shadow{
+    z-index: 500;
+}
+
+.shadow-show{
+    display: block;
+}
+
+.scroll-disable{
+    overflow: hidden;
+}
+
 .top-bar-drop-down{
     overflow: hidden;
     padding: 10px;
@@ -739,6 +772,8 @@ form > button > span {
 .active{
     box-shadow: none;
 }
+
+
 
 
 /* dark-mode */

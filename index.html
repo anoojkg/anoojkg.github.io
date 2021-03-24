@@ -64,6 +64,12 @@
                 </svg>
         </div>
     </div>
+    <div class="top-bar-shadow">
+
+    </div>
+    <div class="sign-in-shadow">
+    
+    </div>
     <div class="sign-in-pop-up">
         <div class="sign-in-pop-up-close">
             <svg height="329pt" viewBox="0 0 329.26933 329" width="329pt" xmlns="http://www.w3.org/2000/svg">
@@ -860,18 +866,36 @@
             // top-bar
             const topBar = document.querySelector(".top-bar");
             const landing = document.querySelector(".landing-section");
+            const topBarShadow = document.querySelector(".top-bar-shadow");
+            const body = document.getElementsByTagName('body')[0];
 
             // drop-down
             const menuBar = document.getElementById('menu-bar');
             const option = document.getElementsByClassName('option');
 
             menuBar.addEventListener('click', () => {
+
+                // signInPopUp.classList.remove("pop");
+                // signInShadow.classList.remove('shadow-show');
+                // body.classList.remove('scroll-disable');
+
                 topBar.classList.toggle('active');
+                topBarShadow.classList.toggle('shadow-show');
+                body.classList.toggle('scroll-disable');
+
+            })
+
+            topBarShadow.addEventListener('click', () => {
+                topBar.classList.remove('active');
+                topBarShadow.classList.remove('shadow-show');
+                body.classList.remove('scroll-disable');
             })
 
             for (var i = 0; i < option.length; i++) {
                 option[i].addEventListener('click', () => {
-                    topBar.classList.toggle('active');
+                    topBar.classList.remove('active');
+                    topBarShadow.classList.remove('shadow-show');
+                    body.classList.remove('scroll-disable');
                 }, false);
             }
 
@@ -919,17 +943,35 @@
         var popUpDisclaimer = document.getElementById("sign-in-pop-up-disclaimer");
         var mainSignInButton = document.getElementById('sign-in-main');
         var popUpClose = document.querySelector(".sign-in-pop-up-close");
+        var signInShadow = document.querySelector(".sign-in-shadow");
+
+        signInShadow.addEventListener('click', () => {
+                signInPopUp.classList.remove("pop");
+                signInShadow.classList.remove('shadow-show');
+                body.classList.remove('scroll-disable');
+            })
+        
 
         popUpClose.addEventListener('click', () => {
                 signInPopUp.classList.remove("pop");
+                signInShadow.classList.remove('shadow-show');
+                body.classList.remove('scroll-disable');
             })
 
         popUpDisclaimer.addEventListener('click', () => {
                 signInPopUp.classList.remove("pop");
+                signInShadow.classList.remove('shadow-show');
+                body.classList.remove('scroll-disable');
         })
 
         mainSignInButton.addEventListener('click', () => {
-            signInPopUp.classList.toggle("pop");
+            topBar.classList.remove('active');
+            topBarShadow.classList.remove('shadow-show');
+
+
+            signInPopUp.classList.add("pop");
+            signInShadow.classList.add('shadow-show');
+            body.classList.add('scroll-disable');
         })
 
         signInForm.addEventListener('submit', checkSignIn, false);
@@ -939,6 +981,8 @@
             if(signInInput.value.match(re)){
                 window.open('https://wealthelite.in/client-login');
                 signInPopUp.classList.remove("pop");
+                signInShadow.classList.remove('shadow-show');
+                body.classList.remove('scroll-disable');
             }
             else{
                 signInButton.classList.add('failed');
