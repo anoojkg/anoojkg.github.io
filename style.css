@@ -158,6 +158,14 @@ svg{
     font-size: 5vw;
 }
 
+h1, h2{
+    font-weight: 400;
+}
+
+h3{
+    font-weight: 500;
+}
+
 .landing-section-sub{
     width: 40vw;
     font-weight: 300;
@@ -1182,6 +1190,7 @@ body.dark {
 
     .landing-section-main-heading{
         padding: 0 10vw;
+        font-weight: 500;
     }
 
     .landing-section-sub{
