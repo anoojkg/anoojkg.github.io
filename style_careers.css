@@ -1,115 +1,119 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&display=swap");
 
-*{
-    display: none;
-    padding: 0;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
+* {
+  /* display: none; */
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
 
-    transition: background-color 0.3s ease-out;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  transition: background-color 0.3s ease-out;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.careers-landing{
-    background-color: black;
-    color: white;
-    height: 94vh;
-    background-image: url(./assets/sofa.png);
-    background-position: center;
-    background-size: cover;
-    margin-bottom: 20px;
+.careers-landing {
+  background-color: black;
+  color: white;
+  height: 100vh;
+  background-image: url(./assets/sofa.png);
+  background-position: center;
+  background-size: cover;
+  /* margin-bottom: 20px; */
 }
 
-.careers-landing-content{
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.335);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.email-link {
+  font-weight: 500;
 }
 
-.careers-landing-content > div:first-child{
-    font-size: 4vw;
-    font-weight: 600;
+.careers-landing-content {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.335);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.careers-landing-content > div:last-child{
-    margin-top: 10px;
-    width: 60%;
-    text-align: center;
-    font-weight: 300;
-    line-height: 25px;
+.careers-landing-content > div:first-child {
+  font-size: 4vw;
+  font-weight: 600;
 }
 
-.career-details{
-    width: 70%;
-    margin: 0 auto;
-    min-height: 70vh;
+.careers-landing-content > div:last-child {
+  margin-top: 10px;
+  width: 60%;
+  text-align: center;
+  font-weight: 300;
+  line-height: 25px;
 }
 
-.career-details-header{
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px #E4E4E4 solid;
+.career-details {
+  width: 70%;
+  margin: 0 auto;
+  min-height: 70vh;
 }
 
-.career-details-header > div:first-child{
-    font-size: 4vw;
-    margin-bottom: 10px;
+.career-details-header {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px #e4e4e4 solid;
 }
 
-.career-details-header > div:last-child{
-    color: #979797;
-}
-.career-details-header > div:last-child .email{
-    color: var(--secondary);
-    font-weight: 500;
+.career-details-header > div:first-child {
+  font-size: 4vw;
+  margin-bottom: 10px;
 }
 
-.career{
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px #E4E4E4 solid;
+.career-details-header > div:last-child {
+  color: #979797;
+}
+.career-details-header > div:last-child .email {
+  color: var(--secondary);
+  font-weight: 500;
 }
 
-.career-details > .career:last-child{
-    border-bottom: none;
+.career {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px #e4e4e4 solid;
 }
 
-.career > .career-designation{
-    font-weight: 600;
-    margin-bottom: 10px;
-    font-size: 20px;
+.career-details > .career:last-child {
+  border-bottom: none;
 }
 
-.career > .career-experience{
-    color: #979797;
-    margin-bottom: 10px;
+.career > .career-designation {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
-.career >.career-description > p{
-    margin-bottom: 10px;
-    line-height: 25px;
-    text-align: justify;
+.career > .career-experience {
+  color: #979797;
+  margin-bottom: 10px;
 }
 
-.checkbox-container{
-    padding: 0;
-    padding-bottom: 20px;
+.career > .career-description > p {
+  margin-bottom: 10px;
+  line-height: 25px;
+  text-align: justify;
 }
 
-@media(max-width: 700px){
-    .careers-landing-content > div:first-child{
-        font-size: 10vw;
-    }
-    .career-details-header > div:first-child{
-        font-size: 7vw;
-    }
-    .career-details{
-        width: 80%;
-    }
-    .careers-landing-content > div:last-child{
-        width: 80%;
-    }
+.checkbox-container {
+  padding: 0;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 700px) {
+  .careers-landing-content > div:first-child {
+    font-size: 10vw;
+  }
+  .career-details-header > div:first-child {
+    font-size: 7vw;
+  }
+  .career-details {
+    width: 80%;
+  }
+  .careers-landing-content > div:last-child {
+    width: 80%;
+  }
 }
